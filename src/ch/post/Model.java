@@ -1,5 +1,21 @@
 package ch.post;
 
-public class Model {
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
+public class Model {
+    private int ID;
+    private String username;
+    private Date date;
+    private String content;
+
+    public Model (int ID, String username, String content) {
+        this.ID = ID;
+        this.username = username;
+        this.content = content;
+        this.date = new Date();
+    }
 }
+
