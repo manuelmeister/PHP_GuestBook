@@ -2,6 +2,7 @@ package ch.post;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.util.DateFormat;
 
 public class Controller {
 
@@ -20,7 +21,32 @@ public class Controller {
     }
 
     public void addPosts(String username, String content){
-        models.addPosts(new Model(username, content, new Date()));
+        if ((username.contains("'")) || (username.contains("\"")) || (username.contains(";"))){ //Update delimiter
+
+        }
+
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+
+        Date today = new Date();
+// Using DateFormat format method we can create a string
+// representation of a date with the defined format.
+        String reportDate = df.format(today);
+
+
+
+
+        String date =
+        Model buffer = new Model(username, content, date);
+        models.add(buffer);
+        repository.addPost(buffer);
+        view.addPost(buffer);
+    }
+
+    public void updateView(){
+        view.clear();
+        for (Model i : models) {
+            view.addPost(i);
+        }
     }
 
 
