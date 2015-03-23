@@ -13,5 +13,15 @@ public class Model {
         this.content = content;
         this.date = date;
     }
+
+    public String getUsername(){
+        return username;
+    }
+    public String getDate(){
+        return date;
+    }
+    public String getContent(){
+        return content;
+    }
 }
 

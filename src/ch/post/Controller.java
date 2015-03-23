@@ -1,8 +1,14 @@
 package ch.post;
+import ch.post.view.View;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
-import java.util.DateFormat;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+
+
 
 public class Controller {
 
@@ -21,25 +27,28 @@ public class Controller {
     }
 
     public void addPosts(String username, String content){
-        if ((username.contains("'")) || (username.contains("\"")) || (username.contains(";"))){ //Update delimiter
+        if (!
+                ((username.contains("'")) ||
+                (username.contains("\"")) ||
+                (username.contains(";")) ||
+                (content.contains("'")) ||
+                (content.contains("\"")) ||
+                (content.contains(";"))
+        )) { //Update delimiter
 
+
+            //create date string
+            DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+            Date today = new Date();
+            String date = df.format(today);
+
+            Model buffer = new Model(username, content, date);
+            models.add(buffer);
+            repository.addPost(buffer.getUsername(), buffer.getDate(), buffer.getContent());
+            view.addPost(buffer);
+        } else {
+            view.alert();
         }
-
-        DateFormat df = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-
-        Date today = new Date();
-// Using DateFormat format method we can create a string
-// representation of a date with the defined format.
-        String reportDate = df.format(today);
-
-
-
-
-        String date =
-        Model buffer = new Model(username, content, date);
-        models.add(buffer);
-        repository.addPost(buffer);
-        view.addPost(buffer);
     }
 
     public void updateView(){
