@@ -6,31 +6,25 @@ import java.sql.*;
  */
 public class Repository {
 
-    public static void main( String args[] )
-    {
+    private String file;
+
+    public Repository(String file) {
+        this.file = file;
+    }
+
+    public void updateDatabase(String username, Date date, String content){
+
         Connection c = null;
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:test.db");
+            c = DriverManager.getConnection("jdbc:sqlite:database.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
-            String sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) " +
-                    "VALUES (1, 'Paul', 32, 'California', 20000.00 );";
-            stmt.executeUpdate(sql);
-
-            sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) " +
-                    "VALUES (2, 'Allen', 25, 'Texas', 15000.00 );";
-            stmt.executeUpdate(sql);
-
-            sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) " +
-                    "VALUES (3, 'Teddy', 23, 'Norway', 20000.00 );";
-            stmt.executeUpdate(sql);
-
-            sql = "INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) " +
-                    "VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 );";
+            String sql = "INSERT INTO POSTS (USERNAME, DATE, MESSAGE) " +
+                    "VALUES (username, date, content);";
             stmt.executeUpdate(sql);
 
             stmt.close();
@@ -41,6 +35,10 @@ public class Repository {
             System.exit(0);
         }
         System.out.println("Records created successfully");
+    }
+
+    public void getPosts(){
+
     }
 
 }
