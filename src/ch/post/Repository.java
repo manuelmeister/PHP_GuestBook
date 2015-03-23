@@ -48,11 +48,12 @@ public class Repository {
                 String content = rs.getString("message");
                 String datum = rs.getString("sql_date");
                 posts.add(new Model(username, content, datum));
-                return posts;
             }
             rs.close();
             stmt.close();
             c.close();
+            return posts;
+
         } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
