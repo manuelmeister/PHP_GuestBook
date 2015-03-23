@@ -1,4 +1,4 @@
-package ch.post;
+package ch.post.view;
 
 public class View {
 
