@@ -5,12 +5,6 @@ import java.util.List;
 
 public class Repository {
 
-    private String file;
-
-    public Repository(String file) {
-        this.file = file;
-    }
-
     public void addPost(String username, String datum, String content){
 
         Connection c = null;
