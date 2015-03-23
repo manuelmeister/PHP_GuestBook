@@ -8,10 +8,10 @@ public class Model {
     private Date date;
     private String content;
 
-    public Model (String username, String content) {
+    public Model (String username, String content, Date date) {
         this.username = username;
         this.content = content;
-        this.date = new Date();
+        this.date = date;
     }
 }
 
