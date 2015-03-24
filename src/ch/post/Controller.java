@@ -8,8 +8,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 
-
-
 public class Controller {
 
     private List<Model> models;
@@ -47,7 +45,7 @@ public class Controller {
             repository.addPost(buffer.getUsername(), buffer.getDate(), buffer.getContent());
             view.addPost(buffer);
         } else {
-            view.alert();
+            view.alert("Username can't contain some special characters!");
         }
     }
 
