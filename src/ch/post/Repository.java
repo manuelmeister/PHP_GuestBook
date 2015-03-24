@@ -52,16 +52,13 @@ public class Repository {
             rs.close();
             stmt.close();
             c.close();
-            return posts;
 
         } catch ( Exception e ) {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
         }
         System.out.println("Operation done successfully");
-    }
-
-
+        return posts;
     }
 
 }
