@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
@@ -10,14 +13,76 @@
 <?import javafx.scene.control.Label?>
 <?scenebuilder-stylesheet style.css?>
 
-<ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <content>
-      <VBox>
-         <children>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" styleClass="post" VBox.vgrow="ALWAYS" />
-            <Pane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" styleClass="post" />
-            <Pane layoutX="10.0" layoutY="210.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" styleClass="post" />
-         </children>
-      </VBox>
-   </content>
-</ScrollPane>
+<fx:root dividerPositions="0.755868544600939" orientation="VERTICAL" prefHeight="768.0" prefWidth="966.0" styleClass="frame" type="SplitPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.post.view.View">
+   <items>
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" prefHeight="400.0" prefWidth="600.0" styleClass="container">
+         <content>
+            <VBox spacing="5.0" styleClass="posts">
+               <children>
+                  <BorderPane styleClass="post" VBox.vgrow="ALWAYS">
+                     <center>
+                        <VBox styleClass="posts" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextFlow>
+                                 <children>
+                                    <Text boundsType="VISUAL" styleClass="content" text="Defines the x nsform for the purpose of layout. The value should be computed as the offset required to adjust the position of the node from its current layoutBounds minX position (which might not be 0) to the desired location." wrappingWidth="1151.420991897583" />
+                                 </children>
+                              </TextFlow>
+                              <HBox spacing="5.0" styleClass="footer">
+                                 <children>
+                                    <Label styleClass="username" text="Username" />
+                                    <Label contentDisplay="RIGHT" styleClass="date" text="24.12.2015" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </center>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </BorderPane>
+                  <BorderPane layoutX="30.0" layoutY="30.0" styleClass="post">
+                     <center>
+                        <VBox styleClass="posts" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextFlow>
+                                 <children>
+                                    <Text boundsType="VISUAL" styleClass="content" text="Defines the x nsform for the purpose of layout. The value should be computed as the offset required to adjust the position of the node from its current layoutBounds minX position (which might not be 0) to the desired location." wrappingWidth="1151.420991897583" />
+                                 </children>
+                              </TextFlow>
+                              <HBox spacing="5.0" styleClass="footer">
+                                 <children>
+                                    <Label styleClass="username" text="Username" />
+                                    <Label contentDisplay="RIGHT" styleClass="date" text="24.12.2015" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+                  <BorderPane layoutX="30.0" layoutY="261.0" styleClass="post">
+                     <center>
+                        <VBox styleClass="posts" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextFlow>
+                                 <children>
+                                    <Text boundsType="VISUAL" styleClass="content" text="Defines the x nsform for the purpose of layout. The value should be computed as the offset required to adjust the position of the node from its current layoutBounds minX position (which might not be 0) to the desired location." wrappingWidth="1151.420991897583" />
+                                 </children>
+                              </TextFlow>
+                              <HBox spacing="5.0" styleClass="footer">
+                                 <children>
+                                    <Label styleClass="username" text="Username" />
+                                    <Label contentDisplay="RIGHT" styleClass="date" text="24.12.2015" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Pane maxHeight="200.0" prefHeight="200.0" prefWidth="200.0" styleClass="input" />
+   </items>
+</fx:root>

@@ -1,5 +1,53 @@
+.frame {
+    -fx-fit-to-width: true;
+}
+
+.container {
+    -fx-fit-to-width: true;
+    -fx-background-color: #dddddd;
+}
+
+.posts{
+    -fx-fit-to-width: true;
+    -fx-spacing: 20px;
+    -fx-padding: 20px;
+}
+
 .post {
+    -fx-background-color: #ffffff;
+    -fx-fit-to-width: true;
+    -fx-pref-width: USE_COMPUTED_SIZE;
+    -fx-pref-height: USE_COMPUTED_SIZE;
+    -fx-min-height: 50px;
+    -fx-padding: 20px;
+    -fx-start-margin: 10px;
+
+}
+
+.vbox {
+    -fx-fit-to-width: true;
     -fx-fill-width: true;
-    -fx-pref-height: 200px;
-    -fx-padding: 10!important;
+    -fx-padding: 0px;
+}
+
+.footer {
+    -fx-padding: 0 0 10px 0;
+    -fx-alignment: baseline-right;
+    -fx-font-family: "Gotham Book", "Segoe UI Semilight", "Helvetica Neue";
+}
+
+.h1 {
+    -fx-font-size: 20px;
+}
+
+.content {
+    -fx-text-fill: black;
+    -fx-fit-to-width: true;
+    -fx-fill-width: true;
+    -fx-background-color: transparent;
+    -fx-font-size: 24px;
+    -fx-font-weight: 100;
+    -fx-font-family: "Gotham Light", "Segoe UI Light", "Helvetica Neue";
+    -fx-stroke-type: outside;
+    -fx-stroke-width: 0;
 }
