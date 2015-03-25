@@ -9,7 +9,7 @@
 
 <SplitPane cacheShape="false" dividerPositions="0.5" maxHeight="768.0" maxWidth="768.0" orientation="VERTICAL" prefHeight="768.0" prefWidth="966.0" styleClass="frame" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.post.view.View">
    <items>
-      <ScrollPane fx:id="container" fitToWidth="true" hbarPolicy="NEVER" prefHeight="400.0" prefWidth="600.0" styleClass="container">
+      <ScrollPane fx:id="scrollPaneContainer" fitToWidth="true" hbarPolicy="NEVER" prefHeight="400.0" prefWidth="600.0" styleClass="container">
          <content>
             <BorderPane>
                <center>
@@ -76,7 +76,7 @@
          <center>
             <VBox styleClass="input_container_vertical" BorderPane.alignment="CENTER">
                <children>
-                  <TextArea fx:id="content" promptText="Message" style="-fx-background-color: #ffffff;" wrapText="true">
+                  <TextArea fx:id="inputTextArea" promptText="Message" style="-fx-background-color: #ffffff;" wrapText="true">
                      <styleClass>
                         <String fx:value="big-text" />
                         <String fx:value="inputarea" />
@@ -84,13 +84,13 @@
                   </TextArea>
                   <FlowPane alignment="BOTTOM_RIGHT" styleClass="input_container_horizontal">
                      <children>
-                        <TextField fx:id="username" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="107.0" promptText="Username">
+                        <TextField fx:id="inputUsername" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="107.0" promptText="Username">
                            <styleClass>
                               <String fx:value="small-text" />
                               <String fx:value="input_username" />
                            </styleClass>
                         </TextField>
-                        <Button fx:id="submit" mnemonicParsing="false" onMouseClicked="#submitButtonAction" text="Senden">
+                        <Button fx:id="buttonSubmit" mnemonicParsing="false" onMouseClicked="#submitButtonAction" text="Senden">
                            <styleClass>
                               <String fx:value="input_submit" />
                               <String fx:value="small-text" />

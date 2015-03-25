@@ -14,20 +14,21 @@ import java.util.Date;
 
 public class View {
 
-    @FXML private ScrollPane container;
+    @FXML private ScrollPane scrollPaneContainer;
 
     @FXML private VBox posts;
 
-    @FXML private TextArea content;
-    @FXML private TextField username;
-    @FXML private Button submit;
+    @FXML private TextArea inputTextArea;
+    @FXML private TextField inputUsername;
+    @FXML private Button buttonSubmit;
 
     @FXML protected void submitButtonAction(MouseEvent mouseEvent){
         Date date = new Date();
         DateFormat dateFormat = new SimpleDateFormat("dd.mm.yyyy HH:mm");
-        posts.getChildren().add(Elements.Post(content.getText(), username.getText(), dateFormat.format(date) ) );
-        content.setText("");
-        username.setText("");
+        String dateString = dateFormat.format(date);
+        addPost(inputTextArea.getText(), inputUsername.getText(), dateString);
+        inputTextArea.setText("");
+        inputUsername.setText("");
     }
 
     /**
@@ -35,7 +36,11 @@ public class View {
      * @param model
      */
     public void addPost(Model model) {
+        addPost(model.getContent(), model.getUsername(), model.getDate());
+    }
 
+    public void addPost(String content, String username, String date){
+        posts.getChildren().add(Elements.Post(content, username, date ) );
     }
 
     /**
