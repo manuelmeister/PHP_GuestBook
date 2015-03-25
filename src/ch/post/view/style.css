@@ -1,5 +1,8 @@
 .frame {
     -fx-fit-to-width: true;
+    -fx-border-width: 0;
+    -fx-min-width: 768px;
+    -fx-min-height: 768px;
 }
 
 .container {
@@ -16,12 +19,15 @@
 .post {
     -fx-background-color: #ffffff;
     -fx-fit-to-width: true;
-    -fx-pref-width: USE_COMPUTED_SIZE;
-    -fx-pref-height: USE_COMPUTED_SIZE;
     -fx-min-height: 50px;
     -fx-padding: 20px;
     -fx-start-margin: 10px;
+}
 
+.post-inner {
+    -fx-fit-to-width: true;
+    -fx-spacing: 20px;
+    -fx-padding: 20px;
 }
 
 .vbox {
@@ -33,11 +39,26 @@
 .footer {
     -fx-padding: 0 0 10px 0;
     -fx-alignment: baseline-right;
-    -fx-font-family: "Gotham Book", "Segoe UI Semilight", "Helvetica Neue";
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+    -fx-font-family: "Gotham Book", "Segoe UI Regular", "Helvetica Neue";
+    -fx-spacing: 10px;
 }
 
 .h1 {
     -fx-font-size: 20px;
+}
+
+.big-text {
+    -fx-font-size: 24px;
+    -fx-font-weight: 100;
+    -fx-font-family: "Gotham Light", "Segoe UI Light", "Helvetica Neue";
+}
+
+.small-text {
+    -fx-font-size: 14px;
+    -fx-font-weight: 400;
+    -fx-font-family: "Gotham Book", "Segoe UI Regular", "Helvetica Neue";
 }
 
 .content {
@@ -45,9 +66,39 @@
     -fx-fit-to-width: true;
     -fx-fill-width: true;
     -fx-background-color: transparent;
-    -fx-font-size: 24px;
-    -fx-font-weight: 100;
-    -fx-font-family: "Gotham Light", "Segoe UI Light", "Helvetica Neue";
     -fx-stroke-type: outside;
     -fx-stroke-width: 0;
+    -fx-line-spacing: 133%;
 }
+
+.input_container {
+    -fx-padding: 20px;
+}
+
+.inputarea {
+    -fx-padding: 20px;
+}
+
+.inputarea .content {
+    -fx-background-color: #ffffff;
+}
+
+.input_username {
+    -fx-stroke-type: outside;
+    -fx-stroke-width: 0;
+    -fx-background-color: transparent;
+    -fx-stroke-type: outside;
+}
+
+.input_username {
+    -fx-background-color: #ffffff;
+}
+
+.input_container_vertical {
+    -fx-spacing: 20px;
+}
+
+.input_container_horizontal {
+    -fx-hgap: 40px;
+}
+
