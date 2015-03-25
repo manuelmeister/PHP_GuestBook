@@ -2,10 +2,7 @@ package ch.post.view;
 
 import ch.post.Model;
 
-import com.sun.javafx.tools.ant.Platform;
 import javafx.animation.AnimationTimer;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
@@ -38,21 +35,6 @@ public class View {
         addPost(inputTextArea.getText(), inputUsername.getText(), dateString);
         inputTextArea.setText("");
         inputUsername.setText("");
-
-        AnimationTimer timer = new AnimationTimer() {
-            public int counter = 5;
-
-            @Override
-            public void handle(long now) {
-                scrollPaneContainer.setVvalue(scrollPaneContainer.getVmax());
-                if ( this.counter <= 0){
-                    this.stop();
-                }else {
-                    this.counter--;
-                }
-            }
-        };
-        timer.start();
     }
 
 
@@ -73,6 +55,21 @@ public class View {
      */
     public void addPost(String content, String username, String date){
         posts.getChildren().add(Elements.Post(content, username, date));
+
+        AnimationTimer timer = new AnimationTimer() {
+            public int counter = 4;
+
+            @Override
+            public void handle(long now) {
+                scrollPaneContainer.setVvalue(scrollPaneContainer.getVmax());
+                if ( this.counter <= 0){
+                    this.stop();
+                }else {
+                    this.counter--;
+                }
+            }
+        };
+        timer.start();
     }
 
     /**
