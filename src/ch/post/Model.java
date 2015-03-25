@@ -15,13 +15,13 @@ public class Model {
     }
 
     public String getUsername(){
-        return username;
+        return this.username;
     }
     public String getDate(){
-        return date;
+        return this.date;
     }
     public String getContent(){
-        return content;
+        return this.content;
     }
 }
 
