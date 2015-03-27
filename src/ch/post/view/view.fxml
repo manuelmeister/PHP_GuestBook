@@ -21,7 +21,7 @@
                                  <children>
                                     <TextFlow>
                                        <children>
-                                          <Text boundsType="VISUAL" text="Defines the x nsform for the purpose of layout. The value should be computed as the offset required to adjust the position of the node from its current layoutBounds minX position (which might not be 0) to the desired location." wrappingWidth="1151.420991897583">
+                                          <Text boundsType="VISUAL" text="This is just a test post :)" wrappingWidth="1151.420991897583">
                                              <styleClass>
                                                 <String fx:value="content" />
                                                 <String fx:value="big-text" />
@@ -32,7 +32,7 @@
                                     <HBox spacing="10.0" styleClass="footer">
                                        <children>
                                           <Label styleClass="username" text="Username" />
-                                          <Label contentDisplay="RIGHT" styleClass="date" text="24.12.2015" />
+                                          <Label contentDisplay="RIGHT" styleClass="date" text="09:42 27.03.2015" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -48,7 +48,7 @@
                                  <children>
                                     <TextFlow>
                                        <children>
-                                          <Text boundsType="VISUAL" text="Defines the x nsform for the purpose of layout. The value should be computed as the offset required to adjust the position of the node from its current layoutBounds minX position (which might not be 0) to the desired location." wrappingWidth="1151.420991897583">
+                                          <Text boundsType="VISUAL" text="Schöne Ferien!" wrappingWidth="1151.420991897583">
                                              <styleClass>
                                                 <String fx:value="content" />
                                                 <String fx:value="big-text" />
@@ -58,8 +58,8 @@
                                     </TextFlow>
                                     <HBox spacing="5.0" styleClass="footer">
                                        <children>
-                                          <Label styleClass="username" text="Username" />
-                                          <Label contentDisplay="RIGHT" styleClass="date" text="24.12.2015" />
+                                          <Label styleClass="username" text="Manuel Meister" />
+                                          <Label contentDisplay="RIGHT" styleClass="date" text="13:37 06.04.2015" />
                                        </children>
                                     </HBox>
                                  </children>

@@ -4,9 +4,13 @@ import ch.post.Model;
 
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -23,8 +27,19 @@ public class View {
     @FXML private TextField inputUsername;
     @FXML private Button buttonSubmit;
 
-    /**
+    public View(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("view/view.fxml"));
+        String css = this.getClass().getResource("view/style.css").toExternalForm();
 
+        primaryStage.setTitle("GuestBook");
+        Scene scene = new Scene(root, 768, 768);
+
+        scene.getStylesheets().add(css);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    /**
      * On click submit
      * @param mouseEvent MouseEvent
      */
