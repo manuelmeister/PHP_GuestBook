@@ -16,9 +16,9 @@ public class Controller {
     private Repository repository;
     private View view;
 
-    public Controller(Stage stage) throws Exception{
+    public Controller(Stage primarystage) throws Exception{
         this.models = new ArrayList<Model>();
-        view = new View(stage);
+        view = new View(primarystage);
         repository = new Repository();
         this.models = repository.getPosts();
         for (Model i : models) {
@@ -42,9 +42,16 @@ public class Controller {
             Date today = new Date();
             String date = df.format(today);
 
-            Model buffer = new Model(username, content, date);
+            //Add Post to Repository
+            repository.addPost(username, date, content);
+
+            //Get Post from Repository back again with ID
+            Model buffer = repository.getLatestPost();
+
+            //Add Post to Modellist
             models.add(buffer);
-            repository.addPost(buffer.getUsername(), buffer.getDate(), buffer.getContent());
+
+            //Pass Post to View
             view.addPost(buffer);
         } else {
             view.alert("Invalid Username!","Your username cannot contain any special characters", Alert.AlertType.INFORMATION);
