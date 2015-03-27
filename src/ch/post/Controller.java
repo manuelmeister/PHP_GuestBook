@@ -1,5 +1,7 @@
 package ch.post;
 import ch.post.view.View;
+import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +16,9 @@ public class Controller {
     private Repository repository;
     private View view;
 
-    public Controller(){
+    public Controller(Stage stage) throws Exception{
         this.models = new ArrayList<Model>();
-        view = new View();
+        view = new View(stage);
         repository = new Repository();
         this.models = repository.getPosts();
         for (Model i : models) {
@@ -45,7 +47,7 @@ public class Controller {
             repository.addPost(buffer.getUsername(), buffer.getDate(), buffer.getContent());
             view.addPost(buffer);
         } else {
-            view.alert("Username can't contain some special characters!");
+            view.alert("Invalid Username!","Your username cannot contain any special characters", Alert.AlertType.INFORMATION);
         }
     }
 
