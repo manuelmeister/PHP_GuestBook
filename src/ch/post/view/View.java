@@ -35,8 +35,6 @@ public class View {
         addPost(inputTextArea.getText(), inputUsername.getText(), dateString);
         inputTextArea.setText("");
         inputUsername.setText("");
-        alert("test");
-        clear();
     }
 
 
@@ -74,6 +72,10 @@ public class View {
         timer.start();
     }
 
+    /**
+     * Displays a information popup using Model
+     * @param message String
+     */
     public void alert(String message){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information");
