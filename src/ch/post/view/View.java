@@ -35,6 +35,8 @@ public class View {
         addPost(inputTextArea.getText(), inputUsername.getText(), dateString);
         inputTextArea.setText("");
         inputUsername.setText("");
+        alert("test");
+        clear();
     }
 
 
@@ -72,18 +74,29 @@ public class View {
         timer.start();
     }
 
+    public void alert(String message){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(message);
+        alert.showAndWait();
+    }
+
     /**
      * Displays a information popup
      * @param message String
      */
-    public void alert(String message) {
-
+    public void alert(String message, String furtherInfos, Alert.AlertType alertType) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle("Information");
+        alert.setHeaderText(message);
+        alert.setContentText(furtherInfos);
+        alert.showAndWait();
     }
 
     /**
      * Removes all posts from the View
      */
     public void clear() {
-
+        posts.getChildren().clear();
     }
 }
