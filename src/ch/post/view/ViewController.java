@@ -55,7 +55,6 @@ public class ViewController {
             public void handle(long now) {
                 scrollPaneContainer.setVvalue(scrollPaneContainer.getVvalue() + ((scrollPaneContainer.getVmax()-scrollPaneContainer.getVvalue())/4));
                 if ( this.counter <= 0){
-                    System.out.println("test");
                     this.stop();
                 }else {
                     this.counter--;
