@@ -58,7 +58,7 @@ public class Controller {
             viewController.addPost(buffer);
             viewController.clearInputFields();
         } else {
-            viewController.alert("Invalid Username or Context!", "Your username cannot contain any special characters and cannot be empty", Alert.AlertType.INFORMATION);
+            viewController.alert("Invalid Username or Content!", "Your username or content cannot contain any special characters and cannot be empty", Alert.AlertType.INFORMATION);
 
         }
     }
