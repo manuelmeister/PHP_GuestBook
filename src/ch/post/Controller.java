@@ -1,7 +1,10 @@
 package ch.post;
+
 import ch.post.view.View;
-import javafx.scene.control.Alert;
-import javafx.stage.Stage;
+import ch.post.view.ViewController;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,36 +12,35 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-
 public class Controller {
 
     private List<Model> models;
     private Repository repository;
-    private View view;
+    private ViewController viewController;
 
-    public Controller(Stage primarystage) throws Exception{
+    public void init() {
         this.models = new ArrayList<Model>();
-        view = new View(primarystage);
         repository = new Repository();
         this.models = repository.getPosts();
         for (Model i : models) {
-            view.addPost(i);
+            viewController.addPost(i);
         }
     }
 
-    public void addPosts(String username, String content){
+    public void addPosts(String username, String content) {
         if (!
                 ((username.contains("'")) ||
-                (username.contains("\"")) ||
-                (username.contains(";")) ||
-                (content.contains("'")) ||
-                (content.contains("\"")) ||
-                (content.contains(";"))
-        )) { //Update delimiter
+                        (username.contains("\"")) ||
+                        (username.contains(";")) ||
+                        (content.contains("'")) ||
+                        (content.contains("\"")) ||
+                        (content.contains(";"))
+                )) {
+            //Update delimiter
 
 
             //create date string
-            DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+            DateFormat df = new SimpleDateFormat("dd.mm.yyyy HH:mm");
             Date today = new Date();
             String date = df.format(today);
 
@@ -52,20 +54,17 @@ public class Controller {
             models.add(buffer);
 
             //Pass Post to View
-            view.addPost(buffer);
+            viewController.addPost(buffer);
         } else {
-            view.alert("Invalid Username!","Your username cannot contain any special characters", Alert.AlertType.INFORMATION);
+            viewController.alert("Invalid Username!", "Your username cannot contain any special characters", Alert.AlertType.INFORMATION);
         }
     }
 
-    public void updateView(){
-        view.clear();
-        for (Model i : models) {
-            view.addPost(i);
-        }
+    public void setViewController(ViewController viewController) {
+        this.viewController = viewController;
     }
 
-
-
-
+    public Parent getView() {
+        return viewController.getRoot();
+    }
 }

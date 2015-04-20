@@ -1,5 +1,6 @@
 package ch.post.view;
 
+import ch.post.Model;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -9,6 +10,11 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 public class Elements {
+
+    @FXML
+    public static BorderPane Post(Model model){
+        return Elements.Post(model.getContent(),model.getUsername(),model.getDate());
+    }
 
     @FXML
     public static BorderPane Post(String content, String username, String date){

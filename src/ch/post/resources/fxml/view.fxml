@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?scenebuilder-stylesheet style.css?>
+
+<?import java.lang.String?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<SplitPane fx:id="root" cacheShape="false" dividerPositions="0.5" maxHeight="768.0" maxWidth="768.0"
+           orientation="VERTICAL" prefHeight="768.0" prefWidth="966.0" styleClass="frame"
+           stylesheets="@/ch/post/resources/style.css" xmlns="http://javafx.com/javafx/8"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.post.view.ViewController">
+    <items>
+        <ScrollPane fx:id="scrollPaneContainer" fitToWidth="true" hbarPolicy="NEVER" prefHeight="400.0"
+                    prefWidth="600.0" styleClass="container">
+            <content>
+                <BorderPane fx:id="contentArea">
+                    <center>
+                        <VBox fx:id="posts" spacing="5.0" styleClass="posts" BorderPane.alignment="CENTER"
+                              xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+                            <children>
+                                <BorderPane styleClass="post" VBox.vgrow="ALWAYS">
+                                    <center>
+                                        <VBox styleClass="posts" BorderPane.alignment="CENTER">
+                                            <children>
+                                                <TextFlow>
+                                                    <children>
+                                                        <Text fx:id="content" boundsType="VISUAL"
+                                                              text="This is just a test post :)"
+                                                              wrappingWidth="1151.420991897583">
+                                                            <styleClass>
+                                                                <String fx:value="content"/>
+                                                                <String fx:value="big-text"/>
+                                                            </styleClass>
+                                                        </Text>
+                                                    </children>
+                                                </TextFlow>
+                                                <HBox spacing="10.0" styleClass="footer">
+                                                    <children>
+                                                        <Label fx:id="username" styleClass="username" text="Username"/>
+                                                        <Label fx:id="date" contentDisplay="RIGHT" styleClass="date"
+                                                               text="09:42 27.03.2015"/>
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </center>
+                                    <VBox.margin>
+                                        <Insets/>
+                                    </VBox.margin>
+                                </BorderPane>
+
+                            </children>
+                        </VBox>
+                    </center>
+                </BorderPane>
+            </content>
+        </ScrollPane>
+        <BorderPane fx:id="input_container" maxHeight="250.0" minHeight="250.0" styleClass="input_container">
+            <center>
+                <VBox styleClass="input_container_vertical" BorderPane.alignment="CENTER">
+                    <children>
+                        <TextArea fx:id="inputTextArea" promptText="Message" style="-fx-background-color: #ffffff;"
+                                  wrapText="true">
+                            <styleClass>
+                                <String fx:value="big-text"/>
+                                <String fx:value="inputarea"/>
+                            </styleClass>
+                        </TextArea>
+                        <FlowPane alignment="BOTTOM_RIGHT" styleClass="input_container_horizontal">
+                            <children>
+                                <TextField fx:id="inputUsername" alignment="CENTER_RIGHT" prefHeight="26.0"
+                                           prefWidth="107.0" promptText="Username">
+                                    <styleClass>
+                                        <String fx:value="small-text"/>
+                                        <String fx:value="input_username"/>
+                                    </styleClass>
+                                </TextField>
+                                <Button fx:id="buttonSubmit" mnemonicParsing="false"
+                                        onMouseClicked="#submitButtonAction" text="Senden">
+                                    <styleClass>
+                                        <String fx:value="input_submit"/>
+                                        <String fx:value="small-text"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </FlowPane>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </items>
+</SplitPane>
