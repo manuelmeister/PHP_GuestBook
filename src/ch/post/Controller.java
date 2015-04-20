@@ -1,6 +1,5 @@
 package ch.post;
 
-import ch.post.view.View;
 import ch.post.view.ViewController;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
