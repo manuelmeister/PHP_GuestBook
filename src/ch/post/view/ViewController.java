@@ -39,7 +39,7 @@ public class ViewController {
 
     @FXML
     public void submitButtonAction(MouseEvent event){
-        controller.addPosts(inputTextArea.getText(),inputUsername.getText());
+        controller.addPosts(inputUsername.getText(),inputTextArea.getText());
         inputTextArea.setText("");
         inputUsername.setText("");
     }
