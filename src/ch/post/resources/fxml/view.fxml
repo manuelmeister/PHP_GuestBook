@@ -13,7 +13,7 @@
            xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.post.view.ViewController">
     <items>
         <ScrollPane fx:id="scrollPaneContainer" fitToWidth="true" hbarPolicy="NEVER" prefHeight="400.0"
-                    prefWidth="600.0" styleClass="container">
+                    prefWidth="600.0" styleClass="container" stylesheets="@/ch/post/resources/scrollbar.css">
             <content>
                 <BorderPane fx:id="contentArea">
                     <center>
