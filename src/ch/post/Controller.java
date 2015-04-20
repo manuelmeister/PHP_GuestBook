@@ -33,7 +33,9 @@ public class Controller {
                         (username.contains(";")) ||
                         (content.contains("'")) ||
                         (content.contains("\"")) ||
-                        (content.contains(";"))
+                        (content.contains(";")) ||
+                        (username.equals("")) ||
+                        (content.equals(""))
                 )) {
             //Update delimiter
 
@@ -54,8 +56,10 @@ public class Controller {
 
             //Pass Post to View
             viewController.addPost(buffer);
+            viewController.clearInputFields();
         } else {
-            viewController.alert("Invalid Username!", "Your username cannot contain any special characters", Alert.AlertType.INFORMATION);
+            viewController.alert("Invalid Username or Context!", "Your username cannot contain any special characters and cannot be empty", Alert.AlertType.INFORMATION);
+
         }
     }
 

@@ -39,9 +39,7 @@ public class ViewController {
 
     @FXML
     public void submitButtonAction(MouseEvent event){
-        controller.addPosts(inputUsername.getText(),inputTextArea.getText());
-        inputTextArea.setText("");
-        inputUsername.setText("");
+        controller.addPosts(inputUsername.getText(), inputTextArea.getText());
     }
 
     public void setController(Controller controller) {
@@ -90,5 +88,10 @@ public class ViewController {
         alert.setHeaderText(message);
         alert.setContentText(furtherInfos);
         alert.showAndWait();
+    }
+
+    public void clearInputFields() {
+        inputTextArea.setText("");
+        inputUsername.setText("");
     }
 }
