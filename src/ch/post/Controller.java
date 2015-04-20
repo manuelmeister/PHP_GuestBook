@@ -39,7 +39,7 @@ public class Controller {
 
 
             //create date string
-            DateFormat df = new SimpleDateFormat("dd.mm.yyyy HH:mm");
+            DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
             Date today = new Date();
             String date = df.format(today);
 
