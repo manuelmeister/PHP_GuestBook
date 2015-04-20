@@ -51,12 +51,13 @@ public class ViewController {
     public void addPost(Model model){
         posts.getChildren().add(Elements.Post(model.getContent(),model.getUsername(),model.getDate()));
         AnimationTimer timer = new AnimationTimer() {
-            public int counter = 4;
+            public int counter = 15;
 
             @Override
             public void handle(long now) {
-                scrollPaneContainer.setVvalue(scrollPaneContainer.getVmax());
+                scrollPaneContainer.setVvalue(scrollPaneContainer.getVvalue() + ((scrollPaneContainer.getVmax()-scrollPaneContainer.getVvalue())/4));
                 if ( this.counter <= 0){
+                    System.out.println("test");
                     this.stop();
                 }else {
                     this.counter--;
