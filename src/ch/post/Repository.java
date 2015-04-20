@@ -15,7 +15,6 @@ public class Repository {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:" + databaseURI);
             c.setAutoCommit(false);
-            System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
             String sql = "INSERT INTO Posts (Username, SQL_Date, Message)  VALUES ('"+username+"', '"+datum+"', '"+content+"');";
@@ -28,7 +27,6 @@ public class Repository {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
         }
-        System.out.println("Records created successfully");
     }
 
     public List<Model> getPosts(){
@@ -40,7 +38,6 @@ public class Repository {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:" + databaseURI);
             c.setAutoCommit(false);
-            System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM Posts;" );
@@ -59,7 +56,6 @@ public class Repository {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
         }
-        System.out.println("Operation done successfully");
         return posts;
     }
 
@@ -73,7 +69,6 @@ public class Repository {
             Class.forName("org.sqlite.JDBC");
             c = DriverManager.getConnection("jdbc:sqlite:" + databaseURI);
             c.setAutoCommit(false);
-            System.out.println("Opened database successfully");
 
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM Posts ORDER BY ID_Post DESC LIMIT 1;" );
@@ -92,7 +87,6 @@ public class Repository {
             System.err.println( e.getClass().getName() + ": " + e.getMessage() );
             System.exit(0);
         }
-        System.out.println("Operation done successfully");
         return post;
     }
 
