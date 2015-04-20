@@ -49,7 +49,7 @@ public class ViewController {
     }
 
     public void addPost(Model model){
-        posts.getChildren().add(Elements.Post(model.getContent(),model.getUsername(),model.getDate()));
+        posts.getChildren().add(new Post(model.getContent(),model.getUsername(),model.getDate()));
         AnimationTimer timer = new AnimationTimer() {
             public int counter = 15;
 
