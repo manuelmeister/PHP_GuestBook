@@ -26,8 +26,6 @@ public class App extends Application {
         Controller controller = factory.getController();
 
         Scene scene = new Scene(controller.getView(), 768, 768);
-        String css = this.getClass().getResource("/ch/post/resources/style.css").toExternalForm();
-        scene.getStylesheets().add(css);
 
         controller.init();
 

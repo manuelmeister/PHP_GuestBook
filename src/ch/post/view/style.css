@@ -10,6 +10,11 @@
     -fx-background-color: #dddddd;
 }
 
+.search_container {
+    -fx-padding: 10px;
+    -fx-spacing: 10px;
+}
+
 .posts{
     -fx-fit-to-width: true;
     -fx-spacing: 20px;
@@ -19,7 +24,7 @@
 .post {
     -fx-background-color: #ffffff;
     -fx-fit-to-width: true;
-    -fx-min-height: 50px;
+    -fx-min-height: 100px;
     -fx-padding: 20px;
     -fx-start-margin: 10px;
 }

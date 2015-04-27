@@ -6,6 +6,10 @@ import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -16,6 +20,11 @@ public class ViewController {
 
     @FXML private Parent root;
     @FXML private BorderPane contentArea;
+
+    @FXML private TextField searchField;
+    @FXML private Button resetSearchString;
+    @FXML private Button searchButton;
+
     @FXML private VBox posts;
     @FXML private Button buttonSubmit;
     @FXML private TextField inputUsername;
@@ -37,9 +46,26 @@ public class ViewController {
         return getClass().getResourceAsStream(string);
     }
 
+
+    @FXML
+    public void searchButtonAction(MouseEvent event){
+        controller.search(searchField.getText());
+    }
+
     @FXML
     public void submitButtonAction(MouseEvent event){
         controller.addPosts(inputUsername.getText(), inputTextArea.getText());
+    }
+
+    @FXML
+    public void resetButtonAction(MouseEvent event){
+        searchField.setText("");
+        controller.clearGetPosts();
+    }
+
+    @FXML
+    public void searchFieldChanged(){
+        controller.search(searchField.getText());
     }
 
     public void setController(Controller controller) {
@@ -92,5 +118,9 @@ public class ViewController {
     public void clearInputFields() {
         inputTextArea.setText("");
         inputUsername.setText("");
+    }
+
+    public void clear() {
+        posts.getChildren().clear();
     }
 }

@@ -90,4 +90,33 @@ public class Repository {
         return post;
     }
 
+    public List<Model> findPosts(String query) {
+
+        Connection c = null;
+        Statement stmt = null;
+        List<Model> posts = new ArrayList<Model>();
+        try {
+            Class.forName("org.sqlite.JDBC");
+            c = DriverManager.getConnection("jdbc:sqlite:" + databaseURI);
+            c.setAutoCommit(false);
+
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT * FROM Posts WHERE Message LIKE '%"+query+"%' OR Username LIKE '%"+query+"%' ORDER BY ID_Post DESC;" );
+            while ( rs.next() ) {
+                String username = rs.getString("Username");
+                String content = rs.getString("Message");
+                String datum = rs.getString("SQL_Date");
+                int ID = rs.getInt("ID_Post");
+                posts.add(new Model(username, content, datum, ID));
+            }
+            rs.close();
+            stmt.close();
+            c.close();
+
+        } catch ( Exception e ) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+            System.exit(0);
+        }
+        return posts;
+    }
 }
