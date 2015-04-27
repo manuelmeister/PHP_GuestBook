@@ -23,40 +23,44 @@ public class Controller {
     }
 
     public void addPosts(String username, String content) {
-        if (!
-                ((username.contains("'")) ||
-                        (username.contains("\"")) ||
-                        (username.contains(";")) ||
-                        (content.contains("'")) ||
-                        (content.contains("\"")) ||
-                        (content.contains(";")) ||
-                        (username.equals("")) ||
-                        (content.equals(""))
-                )) {
-            //Update delimiter
+        if (this.viewController.confirmation("Please do not submit sensitive information!")){
+            if (!
+                    ((username.contains("'")) ||
+                            (username.contains("\"")) ||
+                            (username.contains(";")) ||
+                            (content.contains("'")) ||
+                            (content.contains("\"")) ||
+                            (content.contains(";")) ||
+                            (username.equals("")) ||
+                            (content.equals(""))
+
+                    )) {
+                //Update delimiter
 
 
-            //create date string
-            DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-            Date today = new Date();
-            String date = df.format(today);
+                //create date string
+                DateFormat df = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+                Date today = new Date();
+                String date = df.format(today);
 
-            //Add Post to Repository
-            repository.addPost(username, date, content);
+                //Add Post to Repository
+                repository.addPost(username, date, content);
 
-            //Get Post from Repository back again with ID
-            Model buffer = repository.getLatestPost();
+                //Get Post from Repository back again with ID
+                Model buffer = repository.getLatestPost();
 
-            //Add Post to Modellist
-            models.add(buffer);
+                //Add Post to Modellist
+                models.add(buffer);
 
-            //Pass Post to View
-            viewController.addPost(buffer);
-            viewController.clearInputFields();
-        } else {
-            viewController.alert("Invalid Username or Content!", "Your username or content cannot contain any special characters and cannot be empty", Alert.AlertType.INFORMATION);
+                //Pass Post to View
+                viewController.addPost(buffer);
+                viewController.clearInputFields();
+            } else {
+                viewController.alert("Invalid Username or Content!", "Your username or content cannot contain any special characters and cannot be empty", Alert.AlertType.INFORMATION);
 
+            }
         }
+
     }
 
     public void setViewController(ViewController viewController) {

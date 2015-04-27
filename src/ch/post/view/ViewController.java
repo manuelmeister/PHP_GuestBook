@@ -15,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import java.io.InputStream;
+import java.util.Optional;
 
 public class ViewController {
 
@@ -90,8 +91,6 @@ public class ViewController {
         timer.start();
     }
 
-
-
     /**
      * Displays a information popup using Model
      * @param message String
@@ -101,6 +100,17 @@ public class ViewController {
         alert.setTitle("Information");
         alert.setHeaderText(message);
         alert.showAndWait();
+    }
+
+    /**
+     * Displays a information popup using Model
+     * @param message String
+     */
+    public boolean confirmation(String message){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(message);
+        return (((Optional<ButtonType>) alert.showAndWait()).get() == ButtonType.OK);
     }
 
     /**
