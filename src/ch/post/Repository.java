@@ -1,11 +1,12 @@
 package ch.post;
+import java.net.URI;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Repository {
 
-    private String databaseURI = "src/ch/post/database.db";
+    private String databaseURI = "database.db";
 
     public void addPost(String username, String datum, String content){
 
@@ -13,7 +14,7 @@ public class Repository {
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:" + databaseURI);
+            c = DriverManager.getConnection("jdbc:sqlite::resource:" + databaseURI);
             c.setAutoCommit(false);
 
             stmt = c.createStatement();
@@ -36,7 +37,7 @@ public class Repository {
         List<Model> posts = new ArrayList<Model>();
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:" + databaseURI);
+            c = DriverManager.getConnection("jdbc:sqlite::resource:" + databaseURI);
             c.setAutoCommit(false);
 
             stmt = c.createStatement();
@@ -67,7 +68,7 @@ public class Repository {
         Model post = new Model("[administrator]", "Beim einlesen des letzten Eintrags ist dem Programm ein Fehler unterlaufen", "[]", -1);
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:" + databaseURI);
+            c = DriverManager.getConnection("jdbc:sqlite::resource:" + databaseURI);
             c.setAutoCommit(false);
 
             stmt = c.createStatement();
@@ -97,7 +98,7 @@ public class Repository {
         List<Model> posts = new ArrayList<Model>();
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite:" + databaseURI);
+            c = DriverManager.getConnection("jdbc:sqlite::resource:" + databaseURI);
             c.setAutoCommit(false);
 
             stmt = c.createStatement();

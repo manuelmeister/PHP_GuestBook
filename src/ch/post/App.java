@@ -29,6 +29,8 @@ public class App extends Application {
 
         controller.init();
 
+        primaryStage.setMinHeight(800);
+        primaryStage.setMinWidth(768);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
